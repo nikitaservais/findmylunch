@@ -4,7 +4,7 @@ import RestaurantsDAO from "./restaurantsDAO.js";
 
 const MongoClient = mongodb.MongoClient
 
-const port = 3000
+const port = 5000
 
 MongoClient.connect("mongodb+srv://nikita:nikita@cluster0.pldnh.mongodb.net/sample_restaurants?retryWrites=true&w=majority", {
 }).catch(error => {
