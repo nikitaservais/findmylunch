@@ -1,8 +1,8 @@
 import React from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import RestaurantsList from "./components/restaurants-list";
+import RestaurantsView from "./components/restaurants-view";
 
 function App() {
     return (
@@ -15,7 +15,7 @@ function App() {
 
             <div className="container mt-3">
                 <Switch>
-                    <Route exact path={["/", "/restaurants"]} component={RestaurantsList} />
+                    <Route exact path={["/", "/restaurants"]} component={RestaurantsView} />
                 </Switch>
             </div>
         </div>

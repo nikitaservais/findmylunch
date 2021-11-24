@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import RestaurantDataService from "../services/restaurant";
-import { Link } from "react-router-dom";
+import RestaurantDataService from "../services/restaurantDataService";
 
-const RestaurantsList = props => {
+const RestaurantsView = () => {
     const [restaurants, setRestaurants] = useState([]);
 
     useEffect(() => {
@@ -49,4 +48,4 @@ const RestaurantsList = props => {
     );
 };
 
-export default RestaurantsList;
+export default RestaurantsView;
