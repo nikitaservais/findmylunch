@@ -1,22 +1,13 @@
 import http from "../http-common.js";
 
 class RestaurantDataService {
-    getAll(page = 0) {
+    getAll() {
         return http.get(``);
     }
 
-    get(id) {
-        return http.get(`/restaurant?id=${id}`);
+    find(location, numberRestaurants) {
+        return http.get(`location/?coord=${location}&limit=${20}`);
     }
-
-    find(query, by = "name", page = 0) {
-        return http.get(`restaurants?${by}=${query}&page=${page}`);
-    }
-
-    getCuisines(id) {
-        return http.get(`/cuisines`);
-    }
-
 }
 
 export default new RestaurantDataService();

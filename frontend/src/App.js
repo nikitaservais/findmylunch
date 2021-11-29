@@ -7,7 +7,7 @@ import RestaurantsView from "./components/restaurants-view";
 function App() {
     return (
         <div>
-            <nav className="navbar navbar-expand navbar-dark bg-dark">
+            <nav className="navbar navbar-expand navbar-dark bg-dark" style={{padding: 10}}>
                 <a href="/restaurants" className="navbar-brand">
                     Find My Lunch
                 </a>
