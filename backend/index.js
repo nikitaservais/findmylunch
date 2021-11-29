@@ -1,6 +1,6 @@
 import mongodb from "mongodb"
 import app from "./server.js"
-import RestaurantsDAO from "./restaurantsDAO.js";
+import RestaurantsDAO from "./dao/restaurantsDAO.js";
 
 const MongoClient = mongodb.MongoClient
 
