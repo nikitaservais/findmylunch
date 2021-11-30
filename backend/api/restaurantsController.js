@@ -13,9 +13,9 @@ export default class RestaurantsController {
     static async apiGetRestaurantsByLocation(req, res, next) {
         const limit = req.query.limit ? parseInt(req.query.limit, 10) : 20
         let location = {}
-        if (req.query.coord) {
-            location.latitude = parseFloat(req.query.coord.split(',')[0])
-            location.longitude = parseFloat(req.query.coord.split(',')[1])
+        if (req.query.latitude && req.query.longitude) {
+            location.latitude = parseFloat(req.query.latitude)
+            location.longitude = parseFloat(req.query.longitude)
         }
 
         const restaurantsList = await RestaurantsDAO.getRestaurantByLocation({

@@ -5,8 +5,8 @@ class RestaurantDataService {
         return http.get(``);
     }
 
-    find(location, numberRestaurants) {
-        return http.get(`location/?coord=${location}&limit=${20}`);
+    find(latitude, longitude, numberRestaurants) {
+        return http.get(`location/?latitude=${latitude}&longitude=${longitude}&limit=${20}`);
     }
 }
 

@@ -45,14 +45,21 @@ export default class RestaurantsDAO {
             const pipeline = [
                 {
                     $geoNear: {
-                        near: [-74.010049, 40.707362],
-                        distanceField: "dist",
+                        near: [location.longitude, location.latitude],
+                        distanceField: "distance",
+                        distanceMultiplier: 40075
                         // maxDistance: 2,
                         // query: { category: "Parks" },
                         // includeLocs: "dist.location",
                         // spherical: true
                     }
-                }
+
+                }, {
+                    $sort: {
+                        distance: 1
+                    }
+                },
+                {$limit: limit}
             ]
             let cursor
             try {
@@ -61,11 +68,8 @@ export default class RestaurantsDAO {
                 console.error(`Unable to issue find command, ${e}`)
                 return {restaurantsList: [], totalNumRestaurants: 0}
             }
-
-            const displayCursor = cursor.limit(limit)
-
             try {
-                return await displayCursor.toArray()
+                return await cursor.toArray()
             } catch (e) {
                 console.error(
                     `Unable to convert cursor to array or problem counting documents, ${e}`,

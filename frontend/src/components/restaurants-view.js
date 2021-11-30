@@ -34,8 +34,7 @@ const RestaurantsView = () => {
     };
 
     const findNearLocation = () => {
-        console.log(longitude)
-        RestaurantDataService.find(longitude, 20)
+        RestaurantDataService.find(latitude, longitude, 20)
             .then(response => {
                 console.log(response.data);
                 setRestaurants(response.data.restaurants);
@@ -53,6 +52,7 @@ const RestaurantsView = () => {
             });
         }
     };
+
     return (
         <div>
             <div className="row">
