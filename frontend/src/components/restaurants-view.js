@@ -85,7 +85,6 @@ const RestaurantsView = () => {
                 </form>
                 {restaurants.map((restaurant) => {
                     const address = `${restaurant.address.building} ${restaurant.address.street}, ${restaurant.address.zipcode}`;
-                    const distance = getDistance([longitude, latitude], restaurant.address.coord, 10);
                     return (
                         <div className="pb-1">
                             <div className="card">
@@ -94,7 +93,7 @@ const RestaurantsView = () => {
                                     <p className="card-text">
                                         <strong>Cuisine: </strong>{restaurant.cuisine}<br/>
                                         <strong>Address: </strong>{address}<br/>
-                                        <strong>Distance: </strong>{distance + " m"}
+                                        <strong>Distance: </strong>{Math.round(restaurant.distance) + " m"}
                                     </p>
                                     <div className="row">
                                         <a target="_blank" href={"https://www.google.com/maps/place/" + address}

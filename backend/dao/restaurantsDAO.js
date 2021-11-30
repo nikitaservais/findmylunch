@@ -47,11 +47,8 @@ export default class RestaurantsDAO {
                     $geoNear: {
                         near: [location.longitude, location.latitude],
                         distanceField: "distance",
-                        distanceMultiplier: 40075
-                        // maxDistance: 2,
-                        // query: { category: "Parks" },
-                        // includeLocs: "dist.location",
-                        // spherical: true
+                        distanceMultiplier: 6731000,
+                        spherical: true
                     }
 
                 }, {
@@ -59,7 +56,9 @@ export default class RestaurantsDAO {
                         distance: 1
                     }
                 },
-                {$limit: limit}
+                {
+                    $limit: limit
+                }
             ]
             let cursor
             try {
