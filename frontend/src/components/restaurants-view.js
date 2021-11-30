@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import RestaurantDataService from "../services/restaurantDataService";
-import {getDistance} from "geolib"
 
 
 const RestaurantsView = () => {
@@ -25,7 +24,6 @@ const RestaurantsView = () => {
     const retrieveRestaurants = () => {
         RestaurantDataService.getAll()
             .then(response => {
-                console.log(response.data);
                 setRestaurants(response.data.restaurants);
             })
             .catch(e => {
@@ -36,7 +34,6 @@ const RestaurantsView = () => {
     const findNearLocation = () => {
         RestaurantDataService.find(latitude, longitude, 20)
             .then(response => {
-                console.log(response.data);
                 setRestaurants(response.data.restaurants);
             })
             .catch(e => {
